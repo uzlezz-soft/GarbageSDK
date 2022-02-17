@@ -171,7 +171,7 @@
     <ClInclude Include="SceneComponent.h" />
     <ClInclude Include="Shader.h" />
     <ClInclude Include="Texture.h" />
-    <ClInclude Include="Timer.h" />
+    <ClInclude Include="Clock.h" />
     <ClInclude Include="Transform.h" />
     <ClInclude Include="Updatable.h" />
     <ClInclude Include="Utils.h" />
@@ -192,7 +192,7 @@
     <ClCompile Include="Shader.cpp" />
     <ClCompile Include="stb.cpp" />
     <ClCompile Include="Texture.cpp" />
-    <ClCompile Include="Timer.cpp" />
+    <ClCompile Include="Clock.cpp" />
     <ClCompile Include="Transform.cpp" />
     <ClCompile Include="Updatable.cpp" />
     <ClCompile Include="Utils.cpp" />

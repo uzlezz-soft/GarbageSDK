@@ -1,11 +1,11 @@
-#include "Timer.h"
+#include "Clock.h"
 
-garbage::Timer::Timer()
+garbage::Clock::Clock()
 {
 	m_lastTime = glfwGetTime();
 }
 
-float garbage::Timer::Restart()
+float garbage::Clock::Restart()
 {
 	float time = glfwGetTime();
 	m_elapsedTime = time - m_lastTime;
@@ -14,7 +14,7 @@ float garbage::Timer::Restart()
 	return m_elapsedTime;
 }
 
-float garbage::Timer::GetElapsedTime()
+float garbage::Clock::GetElapsedTime()
 {
 	return m_elapsedTime;
 }

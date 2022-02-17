@@ -26,7 +26,7 @@ void garbage::GarbageEngine::InitializeOpenGL()
 	}
 }
 
-void garbage::GarbageEngine::BindOnStartedEvent(void(*ev)())
+void garbage::GarbageEngine::BindOnStartEvent(void(*ev)())
 {
 	m_startEvents.Bind(ev);
 }
@@ -43,7 +43,7 @@ void garbage::GarbageEngine::Run()
 	m_window = new Window(context);
 	m_window->Initialize();
 
-	m_updateTimer.Restart();
+	m_updateClock.Restart();
 
 	m_startEvents.Invoke();
 
@@ -65,18 +65,22 @@ void garbage::GarbageEngine::Run()
 	while (m_window->Opened())
 	{
 		Update();
+		Render();
 	}
 }
 
 void garbage::GarbageEngine::Update()
 {
-	float deltaTime = m_updateTimer.Restart();
+	float deltaTime = m_updateClock.Restart();
 	//std::cout << "Delta time from last frame: " << deltaTime << std::endl;
 
 	// Update ...
 	glfwPollEvents();
 
 	m_updateEvents.Invoke();
+}
 
+void garbage::GarbageEngine::Render()
+{
 	m_window->Render();
 }

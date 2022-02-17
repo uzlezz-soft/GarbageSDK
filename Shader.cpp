@@ -4,7 +4,7 @@
 #include "Vector3.h"
 
 #ifndef NDEBUG
-#include "Timer.h"
+#include "Clock.h"
 #endif
 
 garbage::Shader::~Shader()
@@ -51,7 +51,7 @@ const garbage::AssetLoadResult garbage::Shader::LoadFromFile(std::string filenam
 	try
 	{
 #ifndef NDEBUG
-		Timer loadTimer;
+		Clock loadClock;
 #endif
 
 		m_originalFile = filename;
@@ -111,7 +111,7 @@ const garbage::AssetLoadResult garbage::Shader::LoadFromFile(std::string filenam
 		m_fragShader = fragShader;
 
 #ifndef NDEBUG
-		std::cout << "DEBUG: Shader " << filename << " took " << loadTimer.Restart() * 1000.f << " ms to load.";
+		std::cout << "DEBUG: Shader " << filename << " took " << loadClock.Restart() * 1000.f << " ms to load.";
 #endif
 
 		return ALR_Success;

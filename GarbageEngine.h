@@ -5,7 +5,7 @@
 #include <glad/glad.h>
 
 #include "Window.h"
-#include "Timer.h"
+#include "Clock.h"
 #include "GarbageEvent.h"
 
 namespace garbage
@@ -20,7 +20,7 @@ namespace garbage
 
 		void InitializeOpenGL();
 
-		void BindOnStartedEvent(void (*ev)());
+		void BindOnStartEvent(void (*ev)());
 		void BindOnUpdateEvent(void (*ev)());
 
 		void Run();
@@ -28,7 +28,7 @@ namespace garbage
 	private:
 
 		Window* m_window = nullptr;
-		Timer m_updateTimer;
+		Clock m_updateClock;
 
 		GarbageEvent m_startEvents;
 		GarbageEvent m_updateEvents;
@@ -36,6 +36,7 @@ namespace garbage
 		bool m_openGLInitialized = false;
 
 		void Update();
+		void Render();
 
 	};
 

@@ -8,11 +8,11 @@
 namespace garbage
 {
 
-	class GSDK Timer
+	class GSDK Clock
 	{
 	public:
 
-		Timer();
+		Clock();
 
 		float Restart();
 		inline float GetElapsedTime();
