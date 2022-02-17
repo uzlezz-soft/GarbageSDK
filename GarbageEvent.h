@@ -11,14 +11,14 @@ namespace garbage
 	{
 	public:
 
-		void Bind(void(*ev));
-		void Unbind(void(*ev));
+		void Bind(void (*ev)());
+		void Unbind(void (*ev)());
 
 		void Invoke();
 
 	private:
 
-		std::vector<void(*)> m_events;
+		std::vector<void(*)()> m_events;
 
 	};
 

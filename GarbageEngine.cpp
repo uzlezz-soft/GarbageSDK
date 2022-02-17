@@ -28,12 +28,12 @@ void garbage::GarbageEngine::InitializeOpenGL()
 
 void garbage::GarbageEngine::BindOnStartedEvent(void(*ev)())
 {
-	m_startEventHandler = ev;
+	m_startEvents.Bind(ev);
 }
 
-void garbage::GarbageEngine::BindOnUpdateEvent(void(*ev)(float))
+void garbage::GarbageEngine::BindOnUpdateEvent(void(*ev)())
 {
-	m_updateEventHandler = ev;
+	m_updateEvents.Bind(ev);
 }
 
 void garbage::GarbageEngine::Run()
@@ -45,7 +45,7 @@ void garbage::GarbageEngine::Run()
 
 	m_updateTimer.Restart();
 
-	if (m_startEventHandler) m_startEventHandler();
+	m_startEvents.Invoke();
 
 	Shader shader;
 	switch (shader.LoadFromMasterFile("master.gbs", garbage::MSP_DiffuseMap))
@@ -76,7 +76,7 @@ void garbage::GarbageEngine::Update()
 	// Update ...
 	glfwPollEvents();
 
-	if (m_updateEventHandler) m_updateEventHandler(deltaTime);
+	m_updateEvents.Invoke();
 
 	m_window->Render();
 }

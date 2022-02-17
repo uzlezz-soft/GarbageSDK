@@ -6,6 +6,7 @@
 
 #include "Window.h"
 #include "Timer.h"
+#include "GarbageEvent.h"
 
 namespace garbage
 {
@@ -19,8 +20,8 @@ namespace garbage
 
 		void InitializeOpenGL();
 
-		void BindOnStartedEvent(void(*ev)());
-		void BindOnUpdateEvent(void(*ev)(float));
+		void BindOnStartedEvent(void (*ev)());
+		void BindOnUpdateEvent(void (*ev)());
 
 		void Run();
 
@@ -29,8 +30,8 @@ namespace garbage
 		Window* m_window = nullptr;
 		Timer m_updateTimer;
 
-		void (*m_startEventHandler)();
-		void (*m_updateEventHandler)(float);
+		GarbageEvent m_startEvents;
+		GarbageEvent m_updateEvents;
 
 		bool m_openGLInitialized = false;
 
