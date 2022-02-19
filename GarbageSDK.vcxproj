@@ -178,6 +178,7 @@
     <ClInclude Include="Vector3.h" />
     <ClInclude Include="Window.h" />
     <ClInclude Include="WindowContext.h" />
+    <ClInclude Include="World.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Asset.cpp" />
@@ -199,6 +200,7 @@
     <ClCompile Include="Vector3.cpp" />
     <ClCompile Include="Window.cpp" />
     <ClCompile Include="WindowContext.cpp" />
+    <ClCompile Include="World.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -3,6 +3,7 @@
 #include <stb/stb_image.h>
 #include <fstream>
 #include "AssetsManager.h"
+#include <sstream>
 
 garbage::Texture::~Texture()
 {
@@ -29,23 +30,50 @@ const garbage::AssetLoadResult garbage::Texture::LoadFromFile(std::string filena
 			return loadResult;
 		}
 
-		m_type = static_cast<garbage::TType>(in.get());
+		auto ttype = static_cast<garbage::TType>(in.get());
+
+		switch (ttype)
+		{
+		case garbage::TT_1D:
+			m_type = GL_TEXTURE_1D;
+			break;
+		case garbage::TT_2D:
+			m_type = GL_TEXTURE_2D;
+			break;
+		case garbage::TT_3D:
+			m_type = GL_TEXTURE_3D;
+			break;
+		case garbage::TT_CubeMap:
+			m_type = GL_TEXTURE_CUBE_MAP;
+			break;
+		default:
+			break;
+		}
+
 		m_filtering = static_cast<garbage::TFiltering>(in.get());
 
 		m_flipOnLoad = in.get();
 		m_mipmaps = in.get();
 
 		std::string data;
+		std::stringstream ss;
+
 		while (!in.eof())
 		{
-			char c = in.get() ^ ASSET_XOR;
-			data += c;
+			char c = in.get();
+			c ^= ASSET_XOR;
+
+			ss << c;
 		}
+		in.close();
+
+		data = ss.str();
 
 		in.close();
 
 		stbi_set_flip_vertically_on_load(m_flipOnLoad);
-		unsigned char* bytes = stbi_load(data.c_str(), &m_width, &m_height, &m_numColorChannels, 0);
+
+		unsigned char* bytes = stbi_load_from_memory((unsigned char*)data.c_str(), data.size(), &m_width, &m_height, &m_numColorChannels, 0);
 
 		glGenTextures(1, &m_id);
 		glActiveTexture(GL_TEXTURE0);

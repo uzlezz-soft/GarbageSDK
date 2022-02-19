@@ -10,7 +10,7 @@
 #define AH_Version (int)1
 #define AH_Text (const char*)"GARBAGE_{$asset_type}_FILE"
 #define AH_Date (const char*)"02.01.22"
-#define ASSET_XOR (int)666
+#define ASSET_XOR (int)123
 
 namespace garbage
 {
@@ -21,6 +21,7 @@ namespace garbage
 	};
 
 	GSDK AssetLoadResult ENUM_StringToALR(std::string& str);
+	GSDK const std::string ENUM_ALRToString(AssetLoadResult alr);
 
 	class GSDK Asset
 	{

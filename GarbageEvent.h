@@ -22,6 +22,22 @@ namespace garbage
 
 	};
 
+	template <class T>
+	class GSDK GarbageEventP
+	{
+	public:
+
+		void Bind(void (*ev)(T));
+		void Unbind(void (*ev)(T));
+
+		void Invoke();
+
+	private:
+
+		std::vector<void(*)(T)> m_events;
+
+	};
+
 }
 
 #endif

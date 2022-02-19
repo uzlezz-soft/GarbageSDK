@@ -111,7 +111,7 @@ const garbage::AssetLoadResult garbage::Shader::LoadFromFile(std::string filenam
 		m_fragShader = fragShader;
 
 #ifndef NDEBUG
-		std::cout << "DEBUG: Shader " << filename << " took " << loadClock.Restart() * 1000.f << " ms to load.";
+		std::cout << "DEBUG: Shader " << filename << " took " << loadClock.Restart() * 1000.f << " ms to load." << std::endl;
 #endif
 
 		return ALR_Success;

@@ -87,7 +87,7 @@ void garbage::Window::Render()
 {
 	Clear();
 
-	GL_SwapBuffers();
+	//GL_SwapBuffers();
 }
 
 bool garbage::Window::Opened()

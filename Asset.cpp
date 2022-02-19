@@ -12,6 +12,18 @@ garbage::AssetLoadResult garbage::ENUM_StringToALR(std::string& str)
 	else return ALR_None;
 }
 
+const std::string garbage::ENUM_ALRToString(AssetLoadResult alr)
+{
+	if (alr == ALR_FileNotFound) return "ALR_FileNotFound";
+	else if (alr == ALR_HeadersMismatch) return "ALR_HeadersMismatch";
+	else if (alr == ALR_HeadersOk) return "ALR_HeadersOk";
+	else if (alr == ALR_Success) return "ALR_Success";
+	else if (alr == ALR_SyntaxError) return "ALR_SyntaxError";
+	else if (alr == ALR_UnexceptedEndOfFile) return "ALR_UnexceptedEndOfFile";
+	else if (alr == ALR_UnknownError) return "ALR_UnknownError";
+	else return "ALR_None";
+}
+
 const garbage::AssetLoadResult garbage::Asset::LoadFromFile(std::string filename)
 {
 	m_originalFile = filename;
@@ -46,6 +58,11 @@ const garbage::AssetLoadResult garbage::Asset::LoadFileHeaders(std::ifstream& in
 		in.close();
 
 		return ALR_HeadersMismatch;
+	}
+
+	if (text == garbage::utils::Replace(AH_Text, "{$asset_type}", "TEXTURE"))
+	{
+
 	}
 
 	return ALR_HeadersOk;

@@ -25,13 +25,15 @@ namespace garbage
 
 		inline bool Opened();
 
+		void GL_SwapBuffers();
+
 	private:
 
 		WindowContext m_context;
 		GLFWwindow* m_window;
 
 		void Clear();
-		void GL_SwapBuffers();
+		
 		void GL_MakeCurrent();
 
 	};
