@@ -1,5 +1,5 @@
-#ifndef _garbage_timer
-#define _garbage_timer
+#ifndef _garbage_clock
+#define _garbage_clock
 
 #include "GarbageSDK.h"
 #include <glad/glad.h>
