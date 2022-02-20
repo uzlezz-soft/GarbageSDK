@@ -18,6 +18,7 @@ void garbage::GarbageEngine::InitializeOpenGL()
 	if (!m_openGLInitialized)
 	{
 		WindowContext context;
+		context.PolygonMode = WindowContext::PM_Fill;
 
 		m_window = new Window(context);
 		m_window->Initialize();

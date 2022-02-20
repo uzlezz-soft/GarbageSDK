@@ -5,4 +5,6 @@
 
 #define GSDK __declspec(dllexport)
 
+#define GARBAGE_RENDERPIPELINE_OPENGL
+
 #endif
