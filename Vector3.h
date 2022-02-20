@@ -50,12 +50,18 @@ namespace garbage
 		static inline Vector3 Right() { return Vector3(1.f, 0.f, 0.f); }
 		static inline Vector3 Up() { return Vector3(0.f, 1.f, 0.f); }
 
-		Vector3 operator+(Vector3& other);
-		Vector3 operator-(Vector3& other);
-		Vector3 operator*(float other);
-		Vector3 operator/(float other);
-		bool operator!=(Vector3& other);
-		bool operator==(Vector3& other);
+		Vector3 operator+(Vector3 other) const;
+		Vector3 operator-(Vector3 other) const;
+
+		void operator+=(Vector3 other);
+		void operator-=(Vector3 other);
+		void operator*=(float other);
+		void operator/=(float other);
+
+		Vector3 operator*(float other) const;
+		Vector3 operator/(float other) const;
+		bool operator!=(Vector3& other) const;
+		bool operator==(Vector3& other) const;
 
 		operator glm::vec3() const { return m_v3; }
 

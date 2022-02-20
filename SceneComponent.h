@@ -3,7 +3,6 @@
 
 #include "GarbageSDK.h"
 #include "Object.h"
-#include "Transform.h"
 
 namespace garbage
 {
@@ -12,15 +11,7 @@ namespace garbage
 	{
 	public:
 
-		inline Transform* GetTransform() { return &m_transform; }
-
-		const Vector3& GetLocation() const { return m_transform.Location; }
-		//const Quaternion& GetRotation() const { return m_transform.Rotation; }
-		const Vector3& GetScale() const { return m_transform.Scale; }
-
-	private:
-
-		Transform m_transform;
+		SceneComponent() : Object() {}
 
 	};
 

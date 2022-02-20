@@ -75,6 +75,9 @@
     <ClInclude Include="World.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
+    <ClInclude Include="Actor.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssetsManager.cpp">
@@ -135,6 +138,9 @@
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="World.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="Actor.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>

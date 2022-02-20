@@ -14,7 +14,7 @@ namespace garbage
 
 	protected:
 
-		bool bUpdateEnabled = false;
+		bool m_bUpdateEnabled = false;
 
 		virtual void Update(float deltaTime) {}
 

@@ -2,5 +2,5 @@
 
 void garbage::Updatable::Engine_Update(float deltaTime)
 {
-	if (bUpdateEnabled) Update(deltaTime);
+	if (m_bUpdateEnabled) Update(deltaTime);
 }

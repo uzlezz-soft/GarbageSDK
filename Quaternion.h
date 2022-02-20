@@ -45,6 +45,19 @@ namespace garbage
 
 		operator glm::quat() const { return m_q; }
 
+		Quaternion operator+(Quaternion other) const;
+		Quaternion operator-(Quaternion other) const;
+
+		void operator+=(Quaternion other);
+		void operator-=(Quaternion other);
+		void operator*=(float other);
+		void operator/=(float other);
+
+		Quaternion operator*(float other) const;
+		Quaternion operator/(float other) const;
+		bool operator==(Quaternion& other) const;
+		bool operator!=(Quaternion& other) const;
+
 	protected:
 
 		virtual std::string ToString() const override;

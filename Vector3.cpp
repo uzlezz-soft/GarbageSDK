@@ -16,32 +16,52 @@ garbage::Vector3 garbage::Vector3::Lerp(Vector3& other, float time) const
 	return Vector3(Mathf::Lerp(GetX(), other.GetX(), time), Mathf::Lerp(GetY(), other.GetY(), time), Mathf::Lerp(GetZ(), other.GetZ(), time));
 }
 
-garbage::Vector3 garbage::Vector3::operator+(Vector3& other)
+garbage::Vector3 garbage::Vector3::operator+(Vector3 other) const
 {
 	return m_v3 + other.m_v3;
 }
 
-garbage::Vector3 garbage::Vector3::operator-(Vector3& other)
+garbage::Vector3 garbage::Vector3::operator-(Vector3 other) const
 {
 	return m_v3 - other.m_v3;
 }
 
-garbage::Vector3 garbage::Vector3::operator*(float other)
+void garbage::Vector3::operator+=(Vector3 other)
+{
+	m_v3 += other.m_v3;
+}
+
+void garbage::Vector3::operator-=(Vector3 other)
+{
+	m_v3 -= other.m_v3;
+}
+
+void garbage::Vector3::operator*=(float other)
+{
+	m_v3 *= other;
+}
+
+void garbage::Vector3::operator/=(float other)
+{
+	m_v3 /= other;
+}
+
+garbage::Vector3 garbage::Vector3::operator*(float other) const
 {
 	return m_v3 * other;
 }
 
-garbage::Vector3 garbage::Vector3::operator/(float other)
+garbage::Vector3 garbage::Vector3::operator/(float other) const
 {
 	return m_v3 / other;
 }
 
-bool garbage::Vector3::operator!=(Vector3& other)
+bool garbage::Vector3::operator!=(Vector3& other) const
 {
 	return m_v3 != other.m_v3;
 }
 
-bool garbage::Vector3::operator==(Vector3& other)
+bool garbage::Vector3::operator==(Vector3& other) const
 {
 	return m_v3 == other.m_v3;
 }
