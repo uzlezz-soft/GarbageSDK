@@ -180,7 +180,6 @@
     <ClInclude Include="Window.h" />
     <ClInclude Include="WindowContext.h" />
     <ClInclude Include="World.h" />
-    <ClInclude Include="GL/VBO.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Actor.cpp" />
@@ -204,7 +203,6 @@
     <ClCompile Include="Window.cpp" />
     <ClCompile Include="WindowContext.cpp" />
     <ClCompile Include="World.cpp" />
-    <ClCompile Include="GL/VBO.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

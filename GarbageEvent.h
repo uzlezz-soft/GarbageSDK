@@ -27,10 +27,30 @@ namespace garbage
 	{
 	public:
 
-		void Bind(void (*ev)(T));
-		void Unbind(void (*ev)(T));
+		void Bind(void (*ev)(T))
+		{
+			m_events.push_back(ev);
+		}
 
-		void Invoke();
+		void Unbind(void (*ev)(T))
+		{
+			remove(m_events.begin(), m_events.end(), ev);
+		}
+
+		void Invoke(T t)
+		{
+			for (auto it = m_events.begin(); it != m_events.end(); it++)
+			{
+				try
+				{
+					(*it)(t);
+				}
+				catch (...)
+				{
+					m_events.erase(it);
+				}
+			}
+		}
 
 	private:
 

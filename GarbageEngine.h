@@ -22,6 +22,7 @@ namespace garbage
 
 		void BindOnStartEvent(void (*ev)());
 		void BindOnUpdateEvent(void (*ev)());
+		void BindOnRenderEvent(void (*ev)(Window*));
 
 		void Run();
 
@@ -32,6 +33,7 @@ namespace garbage
 
 		GarbageEvent m_startEvents;
 		GarbageEvent m_updateEvents;
+		GarbageEventP<Window*> m_renderEvents;
 		
 		bool m_openGLInitialized = false;
 

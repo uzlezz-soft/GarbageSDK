@@ -48,6 +48,11 @@ void garbage::GarbageEngine::BindOnUpdateEvent(void(*ev)())
 	m_updateEvents.Bind(ev);
 }
 
+void garbage::GarbageEngine::BindOnRenderEvent(void(*ev)(Window*))
+{
+	m_renderEvents.Bind(ev);
+}
+
 void garbage::GarbageEngine::Run()
 {
 	m_updateClock.Restart();
@@ -97,7 +102,7 @@ void garbage::GarbageEngine::Run()
 		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 		glBindVertexArray(0);
 
-		m_window->GL_SwapBuffers();
+		
 	}
 }
 
@@ -109,10 +114,23 @@ void garbage::GarbageEngine::Update()
 	// Update ...
 	glfwPollEvents();
 
+	static int framesCount = 0;
+	framesCount++;
+
+	if (framesCount > 25)
+	{
+		m_window->SetTitle(std::string("FPS: ").append(std::to_string(1 / deltaTime)));
+		framesCount = 0;
+	}
+
 	m_updateEvents.Invoke();
 }
 
 void garbage::GarbageEngine::Render()
 {
 	m_window->Render();
+
+	m_renderEvents.Invoke(m_window);
+
+	m_window->GL_SwapBuffers();
 }

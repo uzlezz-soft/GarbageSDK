@@ -16,9 +16,23 @@ namespace garbage
 		Object() {}
 		Object(std::string name) { Name = name; }
 
-		~Object() {}
+		virtual ~Object() {}
 
 	};
+
+	template <class T>
+	GSDK T* Cast(Object* source)
+	{
+		try {
+			T* object = static_cast<T*>(source);
+
+			return object;
+		}
+		catch (...)
+		{
+			return nullptr;
+		}
+	}
 
 }
 

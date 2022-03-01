@@ -20,7 +20,14 @@ bool garbage::Window::Initialize()
 {
 	m_window = glfwCreateWindow(m_context.Width, m_context.Height, m_context.Title.c_str(), NULL, NULL);
 	GL_MakeCurrent();
-	gladLoadGL();
+
+	static bool gladLoaded = false;
+
+	if (!gladLoaded)
+	{
+		gladLoadGL();
+		gladLoaded = true;
+	}
 
 	if (m_context.DepthTest)
 	{
@@ -88,6 +95,13 @@ void garbage::Window::Render()
 	Clear();
 
 	//GL_SwapBuffers();
+}
+
+void garbage::Window::SetTitle(std::string title)
+{
+	GL_MakeCurrent();
+
+	glfwSetWindowTitle(m_window, title.c_str());
 }
 
 bool garbage::Window::Opened()

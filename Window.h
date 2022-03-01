@@ -18,12 +18,12 @@ namespace garbage
 		~Window();
 
 		bool Initialize();
-
 		void Close();
-
 		void Render();
 
 		inline bool Opened();
+
+		void SetTitle(std::string title);
 
 		void GL_SwapBuffers();
 
