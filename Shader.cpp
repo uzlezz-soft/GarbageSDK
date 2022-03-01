@@ -103,6 +103,7 @@ const garbage::AssetLoadResult garbage::Shader::LoadFromFile(std::string filenam
 			else fragShader += c;
 		}
 
+		// irn, but without this shit it wont work for some reason
 		fragShader = garbage::utils::Replace(fragShader, "eeeeeeeeeeeeeeeeeeeeeeeeeee", "");
 
 		in.close();
