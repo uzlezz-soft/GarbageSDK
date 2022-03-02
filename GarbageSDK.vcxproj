@@ -165,7 +165,10 @@
     <ClInclude Include="GarbageEngine.h" />
     <ClInclude Include="GarbageEvent.h" />
     <ClInclude Include="GarbageSDK.h" />
+    <ClInclude Include="GString.h" />
+    <ClInclude Include="IEnumerable.h" />
     <ClInclude Include="IString.h" />
+    <ClInclude Include="List.h" />
     <ClInclude Include="Mathf.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="Quaternion.h" />
@@ -188,6 +191,7 @@
     <ClCompile Include="GarbageEngine.cpp" />
     <ClCompile Include="GarbageEvent.cpp" />
     <ClCompile Include="glad.c" />
+    <ClCompile Include="GString.cpp" />
     <ClCompile Include="Mathf.cpp" />
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="Quaternion.cpp" />

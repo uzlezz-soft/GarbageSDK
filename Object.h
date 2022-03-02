@@ -18,6 +18,9 @@ namespace garbage
 
 		virtual ~Object() {}
 
+		bool operator!=(Object& other) const;
+		bool operator==(Object& other) const;
+
 	};
 
 	template <class T>
